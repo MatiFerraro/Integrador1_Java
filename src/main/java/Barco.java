@@ -1,7 +1,7 @@
-public class Barco {
-    int matricula;
-    int eslora;
-    int anioFabricacion;
+public abstract class Barco {
+    protected int matricula;
+    protected int eslora;
+    protected int anioFabricacion;
 
     public Barco(int matricula, int eslora, int anioFabricacion){
         this.matricula = matricula;
@@ -9,5 +9,9 @@ public class Barco {
         this.anioFabricacion = anioFabricacion;
     }
 
-    public int modulo();
+    protected int moduloNormal(){
+        return this.eslora*10;
+    }
+
+    protected abstract int moduloEspecial();
 }

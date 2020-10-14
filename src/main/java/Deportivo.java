@@ -1,5 +1,5 @@
 public class Deportivo extends Barco{
-    int potenciaCV;
+    private int potenciaCV;
 
     public Deportivo(int matricula, int eslora, int anioFabricacion, int potenciaCV){
         super(matricula, eslora, anioFabricacion);
@@ -7,8 +7,12 @@ public class Deportivo extends Barco{
     }
 
     @Override
-    public int modulo(int matricula, int eslora, int anioFabricacion, int potenciaCV){
-        int modulo = matricula + eslora + anioFabricacion + potenciaCV;
-        return modulo;
+    protected int moduloEspecial() {
+        int moduloAux = this.moduloNormal() + this.getPotenciaCV();
+        return moduloAux;
+    }
+
+    public int getPotenciaCV(){
+        return potenciaCV;
     }
 }

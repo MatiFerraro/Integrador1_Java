@@ -1,15 +1,14 @@
-import java.util.Date;
-
 public class Cliente {
-    String nombre;
-    double dni;
-    int fechaInicial;
-    int fechaFinal;
+    private String nombre;
+    private double dni;
+    private Barco barco;
 
     public Cliente(String nombre, double dni){
         this.nombre = nombre;
         this.dni = dni;
     }
 
-
+    public Barco getBarco(){
+        return barco;
+    }
 }

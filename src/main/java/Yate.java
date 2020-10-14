@@ -1,6 +1,6 @@
 public class Yate extends Barco{
-    int potenciaCV;
-    int cantCamarotes;
+    private int potenciaCV;
+    private int cantCamarotes;
 
     public Yate(int matricula, int eslora, int anioFabricacion, int potenciaCV, int cantCamarotes){
         super(matricula, eslora, anioFabricacion);
@@ -9,8 +9,16 @@ public class Yate extends Barco{
     }
 
     @Override
-    public int modulo(int matricula, int eslora, int anioFabricacion, int potenciaCV, int cantCamarotes){
-        int modulo = matricula + eslora + anioFabricacion + potenciaCV + cantCamarotes;
-        return modulo;
+    protected int moduloEspecial() {
+        int moduloAux = this.moduloNormal() + this.getPotenciaCV() + this.getCantCamarotes();
+        return moduloAux;
+    }
+
+    public int getPotenciaCV(){
+        return potenciaCV;
+    }
+
+    public int getCantCamarotes(){
+        return cantCamarotes;
     }
 }

@@ -3,7 +3,7 @@ public class Main {
 
     }
 
-    public void alquilarAmarra(){
-
+    public int alquilarAmarra(){
+        return 0;
     }
 }
