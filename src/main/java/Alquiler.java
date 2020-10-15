@@ -38,9 +38,9 @@ public class Alquiler {
     }
 
     public long calcularAlquiler() {
-        long duracionAlquiler = fechaFinal.getTime() - fechaInicial.getTime();
+        long duracionAlquiler = (fechaFinal.getTime() - fechaInicial.getTime()) / (24 * 60 * 60 * 1000);
         int moduloBarco = barco.moduloBarco();
-        long valorAlquiler = (duracionAlquiler * moduloBarco * valorFijo) / (24 * 60 * 60 * 1000);
+        long valorAlquiler = (duracionAlquiler * moduloBarco * valorFijo);
         return valorAlquiler;
     }
 
