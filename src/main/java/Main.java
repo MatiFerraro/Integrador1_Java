@@ -1,8 +1,12 @@
 import java.util.Date;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String args[]){
         ListaDeAlquileres alquileres = new ListaDeAlquileres();
+        Scanner entrada = new Scanner(System.in);
+        int anio;
+        int mes;
 
         Cliente juan = new Cliente("Juan", 20784915);
         Velero veleroJuan = new Velero("ABC123", 10, 1994, 2);
@@ -24,5 +28,14 @@ public class Main {
         Date fechaFinLicha = new Date(2020, 1, 22);
         Alquiler alquilerLicha = new Alquiler(licha.getNombre(), licha.getDni(), fechaInitLicha, fechaFinLicha, 9, yateLicha);
         alquileres.agregarAlquiler(alquilerLicha);
+
+        System.out.println("Ingrese el anio a consultar: ");
+        anio = entrada.nextInt();
+        System.out.println("Ingrese el numero de mes a consultar: ");
+        mes = entrada.nextInt();
+        System.out.println("El mayor alquiler fue: " + alquileres.getMayorAlquiler() + "\n" +
+                "El menor alquiler fue: " + alquileres.getMenorAlquiler() + "\n" +
+                "El promedio mensual del mes " + mes + " fue: " + alquileres.getPromedioAlquilerMensual(anio, mes) + "\n" +
+                "El promedio anual del anio " + anio + " fue: " + alquileres.getPromedioAlquilerAnual(anio) + "\n");
     }
 }
