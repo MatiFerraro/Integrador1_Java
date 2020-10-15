@@ -8,9 +8,9 @@ public class Alquiler {
     private Date fechaInicial;   // YYYY/MM/DD
     private Date fechaFinal;     // YYYY/MM/DD
     private int posicionAmarre;
+    private Barco barco;
 
     Cliente cliente = new Cliente(nombre, dni);
-    Barco barco = cliente.getBarco();
 
     public Alquiler(String nombre, double dni, Date fechaInicial, Date fechaFinal, int posicionAmarre, Barco barco){
         this.nombre = nombre;
@@ -37,12 +37,11 @@ public class Alquiler {
         this.fechaFinal = fechaFinal;
     }
 
-    public int calcularAlquiler(){
+    public int calcularAlquiler() {
         int duracionAlquiler = getFechaFinal().getDay() - getFechaInicial().getDay();
-        int moduloBarco = barco.moduloNormal();
+        int moduloBarco = barco.moduloBarco();
         int valorAlquiler = duracionAlquiler * moduloBarco * valorFijo;
         return valorAlquiler;
     }
-
 
 }

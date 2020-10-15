@@ -2,15 +2,15 @@ public class Yate extends Barco{
     private int potenciaCV;
     private int cantCamarotes;
 
-    public Yate(int matricula, int eslora, int anioFabricacion, int potenciaCV, int cantCamarotes){
+    public Yate(String matricula, int eslora, int anioFabricacion, int potenciaCV, int cantCamarotes){
         super(matricula, eslora, anioFabricacion);
         this.potenciaCV = potenciaCV;
         this.cantCamarotes = cantCamarotes;
     }
 
     @Override
-    protected int moduloEspecial() {
-        int moduloAux = this.moduloNormal() + this.getPotenciaCV() + this.getCantCamarotes();
+    public int moduloBarco() {
+        int moduloAux = super.moduloBarco() + this.getPotenciaCV() + this.getCantCamarotes();
         return moduloAux;
     }
 

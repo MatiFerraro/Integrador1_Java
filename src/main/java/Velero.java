@@ -1,7 +1,7 @@
 public class Velero extends Barco{
     private int cantMastiles;
 
-    public Velero(int matricula, int eslora, int anioFabricacion, int cantMastiles){
+    public Velero(String matricula, int eslora, int anioFabricacion, int cantMastiles){
         super(matricula, eslora, anioFabricacion);
         this.cantMastiles = cantMastiles;
     }
@@ -11,8 +11,8 @@ public class Velero extends Barco{
     }
 
     @Override
-    protected int moduloEspecial() {
-        int moduloAux = this.moduloNormal() + this.getCantMastiles();
+    public int moduloBarco() {
+        int moduloAux = super.moduloBarco() + this.getCantMastiles();
         return moduloAux;
     }
 }
