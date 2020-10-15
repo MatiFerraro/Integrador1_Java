@@ -13,10 +13,10 @@ public class Alquiler {
     Cliente cliente = new Cliente(nombre, dni);
 
     public Alquiler(String nombre, double dni, Date fechaInicial, Date fechaFinal, int posicionAmarre, Barco barco){
-        this.nombre = nombre;
+        this.setNombre(nombre);
         this.dni = dni;
-        this.setFechaInicial(fechaInicial);
-        this.setFechaFinal(fechaFinal);
+        this.fechaInicial = fechaInicial;
+        this.fechaFinal = fechaFinal;
         this.posicionAmarre = posicionAmarre;
         this.barco = barco;
     }
@@ -37,11 +37,18 @@ public class Alquiler {
         this.fechaFinal = fechaFinal;
     }
 
-    public int calcularAlquiler() {
-        int duracionAlquiler = getFechaFinal().getDay() - getFechaInicial().getDay();
+    public long calcularAlquiler() {
+        long duracionAlquiler = fechaFinal.getTime() - fechaInicial.getTime();
         int moduloBarco = barco.moduloBarco();
-        int valorAlquiler = duracionAlquiler * moduloBarco * valorFijo;
+        long valorAlquiler = (duracionAlquiler * moduloBarco * valorFijo) / (24 * 60 * 60 * 1000);
         return valorAlquiler;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 }

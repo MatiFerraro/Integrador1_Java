@@ -11,6 +11,16 @@ public class ListaDeAlquileres {
         this.listaDeAlquileres.add(alquiler);
     }
 
+    public Alquiler getMayorAlquiler(){
+        Alquiler mayorAlquilerAux = listaDeAlquileres.get(0);
+        for(int i = 1; i < listaDeAlquileres.size(); i++){
+            if(listaDeAlquileres.get(i).calcularAlquiler() > mayorAlquilerAux.calcularAlquiler()){
+                mayorAlquilerAux = listaDeAlquileres.get(i);
+            }
+        }
+        return mayorAlquilerAux;
+    }
+
     public Alquiler getMenorAlquiler(){
         Alquiler menorAlquilerAux = listaDeAlquileres.get(0);
         for(int i = 1; i < listaDeAlquileres.size(); i++){
@@ -20,16 +30,6 @@ public class ListaDeAlquileres {
             // Alquiler menorAlquiler = Collections.max(listaDeAlquileres.calcularAlquiler());
         }
         return menorAlquilerAux;
-    }
-
-    public Alquiler getMayorAlquiler(){
-        Alquiler mayorAlquilerAux = listaDeAlquileres.get(0);
-        for(int i = 1; i < listaDeAlquileres.size(); i++){
-            if(listaDeAlquileres.get(i).calcularAlquiler() > mayorAlquilerAux.calcularAlquiler()){
-                mayorAlquilerAux = listaDeAlquileres.get(i);
-            }
-        }
-        return mayorAlquilerAux;
     }
 
     public Float getPromedioAlquilerMensual(int anio, int mes) {
