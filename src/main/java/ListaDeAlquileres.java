@@ -1,4 +1,3 @@
-import java.util.List;
 import java.util.ArrayList;
 
 public class ListaDeAlquileres {
@@ -6,6 +5,10 @@ public class ListaDeAlquileres {
 
     public ListaDeAlquileres(){
         ArrayList<Alquiler> listaDeAlquileres = new ArrayList<Alquiler>();
+    }
+
+    public void agregarAlquiler(Alquiler alquiler){
+        this.listaDeAlquileres.add(alquiler);
     }
 
     public Alquiler getMenorAlquiler(){
@@ -31,11 +34,14 @@ public class ListaDeAlquileres {
 
     public int getPromedioAlquilerMensual(int mes) {
         int acum = 0;
-        for (int i = 1; i <= 30; i++) {
-            for (int j = 1; j < listaDeAlquileres.size(); j++) {
-                acum += listaDeAlquileres.get(j).calcularAlquiler();
+        int cantidadAlquileresMensual = 0;
+        for(int i = 0; i < listaDeAlquileres.size(); i++) {
+            if (listaDeAlquileres.get(i).getFechaInicial().getMonth() == mes &&
+                    listaDeAlquileres.get(i).getFechaFinal().getMonth() == mes) {
+                acum += listaDeAlquileres.get(i).calcularAlquiler();
+                cantidadAlquileresMensual++;
             }
         }
-        return acum;
+        return acum / cantidadAlquileresMensual;
     }
 }

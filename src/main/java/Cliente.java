@@ -11,4 +11,8 @@ public class Cliente {
     public Barco getBarco(){
         return barco;
     }
+
+    public void setBarco(Barco barco) {
+        this.barco = barco;
+    }
 }

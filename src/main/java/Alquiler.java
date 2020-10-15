@@ -3,29 +3,46 @@ import java.util.Date;
 public class Alquiler {
     private int valorFijo = 2;
 
-    private  String nombre;
+    private String nombre;
     private double dni;
-    private int fechaInicial;   // YYYY/MM/DD
-    private int fechaFinal;     // YYYY/MM/DD
+    private Date fechaInicial;   // YYYY/MM/DD
+    private Date fechaFinal;     // YYYY/MM/DD
     private int posicionAmarre;
-    private Date fechaFactura;
 
     Cliente cliente = new Cliente(nombre, dni);
     Barco barco = cliente.getBarco();
 
-    public Alquiler(String nombre, double dni, int fechaInicial, int fechaFinal, int posicionAmarre, Barco barco){
+    public Alquiler(String nombre, double dni, Date fechaInicial, Date fechaFinal, int posicionAmarre, Barco barco){
         this.nombre = nombre;
         this.dni = dni;
-        this.fechaInicial = fechaInicial;
-        this.fechaFinal = fechaFinal;
+        this.setFechaInicial(fechaInicial);
+        this.setFechaFinal(fechaFinal);
         this.posicionAmarre = posicionAmarre;
         this.barco = barco;
     }
 
+    public Date getFechaInicial() {
+        return fechaInicial;
+    }
+
+    public void setFechaInicial(Date fechaInicial) {
+        this.fechaInicial = fechaInicial;
+    }
+
+    public Date getFechaFinal() {
+        return fechaFinal;
+    }
+
+    public void setFechaFinal(Date fechaFinal) {
+        this.fechaFinal = fechaFinal;
+    }
+
     public int calcularAlquiler(){
-        int duracionAlquiler = fechaFinal - fechaInicial;
+        int duracionAlquiler = getFechaFinal().getDay() - getFechaInicial().getDay();
         int moduloBarco = barco.moduloNormal();
         int valorAlquiler = duracionAlquiler * moduloBarco * valorFijo;
         return valorAlquiler;
     }
+
+
 }
