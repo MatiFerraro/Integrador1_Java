@@ -10,8 +10,8 @@ public class Main {
 
         Cliente juan = new Cliente("Juan", 20784915);       // Alquila x $3060
         Velero veleroJuan = new Velero("ABC123", 10, 1994, 2);
-        Date fechaInitJuan = new Date(2020,1,15);
-        Date fechaFinJuan = new Date(2020,1,30);
+        Date fechaInitJuan = new Date(2020,1,14);
+        Date fechaFinJuan = new Date(2020,1,29);
         Alquiler alquilerJuan = new Alquiler(juan.getNombre(), juan.getDni(), fechaInitJuan, fechaFinJuan, 5, veleroJuan);
         alquileres.agregarAlquiler(alquilerJuan);
 
