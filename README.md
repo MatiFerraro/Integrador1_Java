@@ -1,5 +1,5 @@
-# Integrador1_Java
-Curso SysOne
+# Proyecto Integrador de la primer semana - Curso SysOne
+Matías Ferraro
 
 ## Enunciado
 En un puerto se alquilan amarras para barcos de distinto tipo. Para cada ALQUILER se guarda el nombre y DNI del cliente, las fechas inicial y final de  alquiler, la posición del amarre y el barco que lo ocupará.
